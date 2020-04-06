@@ -90,3 +90,5 @@ methods.forEach(function(method){
 
 这里和app一样遍历`methods`使route支持各http方法，首先通过`flatten`打平`处理函数即handler`的结构，接着遍历handlers数组，生成对应的`layer`，将`layer`推入到`route`管理的栈中。
 
+![router](https://hawksights.obs.cn-east-2.myhuaweicloud.com/ceshi/1586146811540.png)
+根据上图，当请求进来时，express会根据路由路径寻找对应的处理函数。这里的layer代表层级，`router`下根据path分为不同层级，layer下又持有`route`，`route`管理着它下面的`layer`，`route`下的每个`layer`就持有一个`handler`。这就构成了整个router匹配树。
