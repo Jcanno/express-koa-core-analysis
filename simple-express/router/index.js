@@ -19,15 +19,6 @@ Router.prototype.handle = function(req, res, out) {
 	let url = req.url;
 	let stack = this.stack;
 
-	// for(idx; idx < this.stack.length; idx++) {
-		
-	// }
-	// while(!matched) {
-	// 	let layer = this.stack[idx];
-	// 	if(url === layer.path) {
-	// 		layer.handle_request(req, res);
-	// 	}
-	// }
 	next()
 
 	function next() {
@@ -41,8 +32,6 @@ Router.prototype.handle = function(req, res, out) {
 				matched = true;
 				layer.handle_request(req, res, next);
 			}
-			
-			
 		}
 	}
 }
