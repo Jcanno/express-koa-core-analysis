@@ -11,9 +11,6 @@ function Router() {
 }
 
 Router.prototype.get = function(path) {
-	console.log('====================================');
-	console.log(Array.prototype.slice.call(arguments, 1));
-	console.log('====================================');
 	const route = new Layer(path, Array.prototype.slice.call(arguments, 1))
 	this.stack.push(route);
 }

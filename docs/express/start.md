@@ -25,7 +25,7 @@ function createApplication() {
     app.handle(req, res, next);
   };
 
-	mixin(app, EventEmitter.prototype, false);
+  mixin(app, EventEmitter.prototype, false);
   mixin(app, proto, false);
 
   // expose the prototype that will get set on requests

@@ -13,10 +13,6 @@ const app = {
 		this._router.get(path, ...handlers);
 	},
 	
-	use() {
-	
-	},
-	
 	listen() {
 		const server = http.createServer(this);
 		return server.listen.apply(server, arguments);

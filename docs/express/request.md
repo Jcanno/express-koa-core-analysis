@@ -9,7 +9,7 @@ function createApplication() {
   };
 
 	// 混合事件触发
-	mixin(app, EventEmitter.prototype, false);
+  mixin(app, EventEmitter.prototype, false);
 	// 混合app方法
   mixin(app, proto, false);
 
