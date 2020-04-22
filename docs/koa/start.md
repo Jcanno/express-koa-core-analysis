@@ -1,6 +1,6 @@
 # 使用例子
 
-我们用官网的例子来展开对`express`的分析
+我们用官网的例子来展开对`koa`的分析
 ```js
 const Koa = require('koa');
 const app = new Koa();
@@ -20,7 +20,7 @@ module.exports = class Application extends Emitter {
 	// ...
 }
 ```
-例子中引入的`Koa`是由类实现，实例化后可以得到`koa`实例，`koa`实例可以调用创建服务、生成context等方法
+例子中引入的`Koa`是由类实现，实例化后的`koa`对象可以调用创建服务、生成context等方法
 
 # app.use
 
@@ -40,12 +40,13 @@ use(fn) {
 }
 ```
 
-`app.use`就是判断传入的是不是函数，并将fn放入`middleware`数组中
+`app.use`主要逻辑就是判断传入的是不是函数，并将fn放入`middleware`数组中
 例子中使用`app.use`来创建中间件，这个中间件能响应任何请求，koa中的核心是中间件模式，其他模块都是通过中间件进行拓展。
 
 # app.listen
 
 ```js
+// lib/application.js
 listen(...args) {
   debug('listen');
   const server = http.createServer(this.callback());

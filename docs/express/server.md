@@ -1,6 +1,6 @@
 # 开启服务
 
-注册路由后，例子中又执行`app.listen(port, () => console.log(`Example app listening on port ${port}!`))`开启服务并监听端口。
+注册路由后，例子中又执行`app.listen(port, () => console.log(Example app listening on port ${port}!))`开启服务并监听端口。
 
 其源码在`lib/application.js`中
 

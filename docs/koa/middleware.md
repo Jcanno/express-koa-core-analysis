@@ -36,5 +36,11 @@ function compose (middleware) {
   }
 }
 ```
+![koa](https://hawksights.obs.cn-east-2.myhuaweicloud.com/ceshi/1587516895161.jpg)
+- `compose`将中间件数组形成一个连续可调用的闭环，当前中间件可以决定是否调用下一个中间件。
 
-`compose`首先判断`middleware`的类型，并返回函数供处理请求时使用。这个函数中又返回一个`dispatch`函数，其实就是在处理第一个中间件，`dispatch`函数首先处理一些边界情况，最后执行并返回`Promise.resolve(fn(context, dispatch.bind(null, i + 1)))`。这就提供我们使用阻塞的方式来在当前中间件逻辑中先处理下一个中间件的逻辑。
+- `compose`处处是闭包，许多优秀的框架都是运用了闭包的艺术，如`redux`。
+
+- `compose`首先判断`middleware`的类型，并返回函数供处理请求时使用。
+
+- 在`compose`闭包函数中返回`dispatch(0)`, 这就是在执行第一个中间件，`dispatch`函数首先处理一些边界情况，最后返回`Promise.resolve(fn(context, dispatch.bind(null, i + 1)))`。根据返回的	Promise，我们就可以在自己编写的中间件中来决定何时调用下一个中间件。
